@@ -1,0 +1,25 @@
+{
+  "name": "clear-energy-takehome",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clear Energy 3-app take-home: Customer, Driver, and Admin Mobile apps sharing types, an API client, and an OrderCard component.",
+  "scripts": {
+    "mock-api": "json-server mock-api.json --port 4000",
+    "test": "pnpm --filter @clear-energy/shared run test",
+    "typecheck": "pnpm -r run typecheck",
+    "customer": "pnpm --filter customer run start",
+    "driver": "pnpm --filter driver run start",
+    "admin-mobile": "pnpm --filter admin-mobile run start"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^20.2.0",
+    "json-server": "^0.17.4",
+    "typescript": "~6.0.3"
+  },
+  "packageManager": "pnpm@11.10.0+sha512.0b7f8b98060031904c017e3a41eb187a16d40eeb829b95c4f8cb03681761fc4ab53dd219115b9b447f4dce1a05a214764461e7d3703392a9f32f9511ce8c86c8",
+  "dependencies": {
+    "expo": "^57.0.4",
+    "react-dom": "19.2.3",
+    "react-native-web": "^0.21.2"
+  }
+}
