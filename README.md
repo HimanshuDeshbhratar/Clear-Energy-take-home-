@@ -16,6 +16,19 @@ clear-energy-takehome/
 └── README.md
 ```
 
+
+## Project Highlights
+
+- Monorepo using pnpm workspaces
+- Shared TypeScript types
+- Shared API client
+- Shared reusable `OrderCard`
+- Shared loading, empty, and error state components
+- React Query for server state
+- React Navigation
+- Unit-tested currency formatter
+
+
 ## Setup
 
 Requires Node 20+ and pnpm (`corepack enable` if you don't have it).
@@ -120,8 +133,9 @@ pnpm run typecheck
 
 ## AI usage
 
-- **Assistant used:** Replit Agent (Claude-based), used for the entirety of this take-home —
+- **Assistant used:** Replit Agent (Claude-based), ChatGPT, used for this take-home —
   scaffolding, the shared package, all three screens, and this README.
+- **ChatGPT** – Used for architecture discussions, reviewing the shared package structure, debugging TypeScript issues and reviewing React Native components.
 - **Scaffold:** apps were bootstrapped with `create-expo-app --template blank-typescript`,
   then hand-edited (removed npm lockfiles/`.git`/`CLAUDE.md`/`AGENTS.md` boilerplate, wired
   into pnpm workspaces) — accepted the generated `App.tsx`/`tsconfig.json`/`assets/` as-is
