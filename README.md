@@ -82,16 +82,12 @@ pnpm run typecheck
   `ApiError` with a `kind` (`network` / `http` / `aborted` / `parse`), so screens branch on one
   shape instead of on `try/catch` details. React Query's `queryFn({ signal })` supplies the
   abort signal, so the client's abort handling is exercised automatically when a screen
-  unmounts mid-request. There are no write endpoints in this API slice, but `client.mutate()`
-  already attaches an `Idempotency-Key` header (via `createIdempotencyKey()`) so the pattern
-  exists before the first `POST` does.
+  unmounts mid-request.
 - **One `<OrderCard />`, three adapters** (R4). The component only knows a small
   `OrderCardModel` (eyebrow / title / subtitle / tone / meta / rightChip / etc.). Three pure
   functions in `adapters.ts` — `orderToCardModel`, `tripStopToCardModel`,
   `pendingActionToCardModel` — translate each domain type into that model. Adding a fourth
-  consumer later means writing one more adapter, not forking the component. A `rightSlot`
-  render prop on the admin variant lets a screen swap in a real action handler without
-  touching the card itself.
+  consumer later means writing one more adapter, not forking the component.
 - **React Navigation native-stack**, one route per app, per the brief — no `expo-router`
   overhead for a single screen.
 - **React Query** for server state — it gives `isLoading` / `isError` / `refetch` and abort
@@ -152,7 +148,7 @@ pnpm run typecheck
 
 ## Actual hours spent
 
-**~1.75 hours** end-to-end: reading the brief + mockups + OpenAPI/mock data, planning the
+**~1 hour 40 mins** end-to-end: reading the brief + mockups + OpenAPI/mock data, planning the
 shared-package boundaries, scaffolding, building `packages/shared`, wiring the three screens,
 fixing the typecheck/test failures, and writing this README.
 
@@ -165,4 +161,3 @@ fixing the typecheck/test failures, and writing this README.
   `queryKey`/`queryFn` boilerplate across the three screens.
 - Real approve/assign mutations on the Admin screen once a write endpoint exists, using
   `client.mutate()` end-to-end with optimistic updates.
-- Detox/Maestro smoke tests per screen — intentionally out of scope per the brief.
